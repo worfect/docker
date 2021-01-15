@@ -83,3 +83,21 @@ services:
       MYSQL_ROOT_PASSWORD: root
     depends_on:
       - db
+
+  selenium-hub:
+    container_name: test-hub
+    image: selenium/hub:3.141.59-20210105
+    ports:
+      - "4444:4444"
+
+  chrome:
+    container_name: test-chrome
+    image: selenium/node-chrome:3.141.59-20210105
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+
