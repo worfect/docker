@@ -23,7 +23,7 @@ npm-up:
 	docker exec -it t-node npm up
 
 npm-i:
-	docker exec -it t-node npm i
+	docker exec -it t-node npm i --no-bin-links
 
 update-project:
 	docker exec -it t-cli composer update
