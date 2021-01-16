@@ -39,7 +39,7 @@ services:
       - ./docker/nginx/ssl:/etc/nginx/ssl
     depends_on:
       - app
-      - db
+#      - db
     ports:
       - "80:80"
       - "443:443"
@@ -100,4 +100,3 @@ services:
     environment:
       - HUB_HOST=selenium-hub
       - HUB_PORT=4444
-
