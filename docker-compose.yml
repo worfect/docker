@@ -61,7 +61,7 @@ services:
   node:
     container_name: node
     build:
-      context: ./
+      context: ./docker/node
       dockerfile: ./docker/node/Dockerfile
     volumes:
       - ./:/var/www

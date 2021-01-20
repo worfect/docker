@@ -26,6 +26,10 @@ RUN docker-php-ext-install pdo_mysql mbstring zip exif pcntl
 RUN docker-php-ext-configure gd --with-gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/
 RUN docker-php-ext-install gd
 
+## Install and configuration xdebug
+#RUN pecl install xdebug && docker-php-ext-enable xdebug
+#RUN  echo "xdebug.mode=coverage" | tee -a  /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
 # Add user for laravel application
 RUN groupadd -g 1000 www
 RUN useradd -u 1000 -ms /bin/bash -g www www

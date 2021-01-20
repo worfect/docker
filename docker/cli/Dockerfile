@@ -33,8 +33,11 @@ RUN mv composer.phar /usr/local/bin/composer && \
     composer self-update
 RUN command -v composer
 
+# Install and configuration xdebug
+RUN pecl install xdebug && docker-php-ext-enable xdebug
+RUN  echo "xdebug.mode=coverage" | tee -a  /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
 # Change current user to www
 USER root
 
 EXPOSE 9000
-
